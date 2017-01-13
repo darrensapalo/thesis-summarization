@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="edu.stanford.nlp:stanford-corenlp:3.6.0" type="repository">
+    <properties maven-id="edu.stanford.nlp:stanford-corenlp:3.6.0" />
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/stanford-corenlp-3.6.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/stanford-corenlp-3.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

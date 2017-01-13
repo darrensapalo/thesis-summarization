@@ -47,7 +47,7 @@ public class RedditCrawler implements ICrawler {
 
     @Override
     public PostThread crawl(String url) {
-        Submission submission = redditClient.getSubmission("4vk2g1");
+        Submission submission = redditClient.getSubmission("3xot4w");
         PostThread result = new PostThread();
 
         result.title = submission.getTitle();
@@ -57,7 +57,7 @@ public class RedditCrawler implements ICrawler {
 
         result.author = getUser(submission.getAuthor());
 
-        result.childPosts = walkTree(submission.getComments());
+        // result.childPosts = walkTree(submission.getComments());
 
         System.out.println(submission);
         return result;
