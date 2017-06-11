@@ -21,4 +21,18 @@ public class TokenTagged {
     public String toString() {
         return String.format("%s_%s (%.2f)", token, tags, probs);
     }
+
+    public String toStringIfVerb() {
+        switch (tags.toUpperCase()) {
+            case "VB":
+            case "VBP":
+            case "TO":
+            case "VBN":
+            case "VBD":
+            case "VBZ":
+            case "VBG":
+                return String.format("*%s*", token);
+        }
+        return String.format("%s", token);
+    }
 }

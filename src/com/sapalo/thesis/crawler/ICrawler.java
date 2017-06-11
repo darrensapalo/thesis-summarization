@@ -1,7 +1,7 @@
 package com.sapalo.thesis.crawler;
 
-import com.sapalo.thesis.PostThread;
-import com.sapalo.thesis.User;
+import com.sapalo.thesis.reddit.PostThread;
+import com.sapalo.thesis.reddit.User;
 
 /**
  * Created by Darren Karl Sapalo on 8/27/2016.

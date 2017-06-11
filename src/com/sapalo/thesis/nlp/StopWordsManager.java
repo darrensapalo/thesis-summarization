@@ -19,6 +19,29 @@ import java.util.Scanner;
  */
 public class StopWordsManager {
 
+    public static String removeStopWords(String textFile, ArrayList<String> stopWordArray) throws Exception {
+        CharArraySet stopWords = StopFilter.makeStopSet(stopWordArray);
+        StandardTokenizer standardTokenizer = new StandardTokenizer();
+        standardTokenizer.setReader(new StringReader(textFile.trim()));
+        TokenStream tokenStream = (TokenStream) standardTokenizer;
+
+        tokenStream = new StopFilter(tokenStream, stopWords);
+        StringBuilder sb = new StringBuilder();
+        CharTermAttribute charTermAttribute = tokenStream.addAttribute(CharTermAttribute.class);
+        tokenStream.reset();
+        while (tokenStream.incrementToken()) {
+            String term = charTermAttribute.toString();
+
+            // stemming
+            Stemmer s = new PorterStemmer();
+            String stemmed = String.valueOf(s.stem(term));
+
+            sb.append(stemmed + " ");
+        }
+
+        return sb.toString();
+    }
+
     public static Boolean removeStopWords(String token) {
         ArrayList<String> stopWordsArray = new ArrayList<>();
 

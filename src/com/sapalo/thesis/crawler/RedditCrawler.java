@@ -1,8 +1,8 @@
 package com.sapalo.thesis.crawler;
 
-import com.sapalo.thesis.Post;
-import com.sapalo.thesis.PostThread;
-import com.sapalo.thesis.User;
+import com.sapalo.thesis.reddit.Post;
+import com.sapalo.thesis.reddit.PostThread;
+import com.sapalo.thesis.reddit.User;
 import net.dean.jraw.RedditClient;
 import net.dean.jraw.fluent.FluentRedditClient;
 import net.dean.jraw.http.UserAgent;

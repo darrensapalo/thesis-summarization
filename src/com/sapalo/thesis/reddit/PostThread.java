@@ -1,6 +1,4 @@
-package com.sapalo.thesis;
-
-import java.util.ArrayList;
+package com.sapalo.thesis.reddit;
 
 /**
  * A post with no parent

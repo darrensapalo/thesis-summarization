@@ -1,4 +1,4 @@
-package com.sapalo.thesis;
+package com.sapalo.thesis.reddit;
 
 import java.util.HashMap;
 

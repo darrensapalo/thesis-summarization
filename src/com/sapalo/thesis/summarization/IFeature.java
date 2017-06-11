@@ -1,6 +1,6 @@
 package com.sapalo.thesis.summarization;
 
-import com.sapalo.thesis.Post;
+import com.sapalo.thesis.reddit.Post;
 
 /**
  * Created by Darren Karl Sapalo on 8/27/2016.
