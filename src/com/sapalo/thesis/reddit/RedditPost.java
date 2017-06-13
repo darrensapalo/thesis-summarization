@@ -8,36 +8,36 @@ import java.util.stream.Collectors;
 /**
  * Created by Darren Karl Sapalo on 8/27/2016.
  */
-public class Post {
+public class RedditPost {
     public String url;
     public String identifier;
     public String remarks;
     public String content;
     public User author;
-    public Post parentPost;
+    public RedditPost parentRedditPost;
     public ArrayList<String> childPosts = new ArrayList<>();
 
-    public List<Post> getChildPosts (){
+    public List<RedditPost> getChildPosts (){
         return childPosts.stream().map(f -> {
-            return Post.getPostCache(f);
+            return RedditPost.getPostCache(f);
         }).collect(Collectors.toList());
     }
 
-    private static HashMap<String, Post> library = new HashMap<>();
+    private static HashMap<String, RedditPost> library = new HashMap<>();
 
-    public static void registerPost(Post post, String identifier){
-        library.put(identifier, post);
+    public static void registerPost(RedditPost redditPost, String identifier){
+        library.put(identifier, redditPost);
     }
 
     public static boolean postExists(String identifier){
         return library.containsKey(identifier);
     }
 
-    public static boolean postExists(Post post){
-        return library.containsKey(post);
+    public static boolean postExists(RedditPost redditPost){
+        return library.containsKey(redditPost);
     }
 
-    public static Post getPostCache(String identifier){
+    public static RedditPost getPostCache(String identifier){
         return library.get(identifier);
     }
 

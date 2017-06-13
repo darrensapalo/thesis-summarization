@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<interview>
+<interview id="mau">
     <metadata>
+        <revision>1</revision>
         <interviewer legend="J">Angelo Malamug</interviewer>
         <interviewee legend="M">Maureen Reyes</interviewee>
 

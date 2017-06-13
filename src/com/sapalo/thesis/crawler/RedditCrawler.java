@@ -1,6 +1,6 @@
 package com.sapalo.thesis.crawler;
 
-import com.sapalo.thesis.reddit.Post;
+import com.sapalo.thesis.reddit.RedditPost;
 import com.sapalo.thesis.reddit.PostThread;
 import com.sapalo.thesis.reddit.User;
 import net.dean.jraw.RedditClient;
@@ -66,28 +66,28 @@ public class RedditCrawler implements ICrawler {
     private ArrayList<String> walkTree(CommentNode comments) {
         ArrayList<String> result = new ArrayList<String>();
         comments.forEach(e -> {
-            Post postFromComment = createPostFromComment(e.getComment());
-            result.add(postFromComment.identifier);
+            RedditPost redditPostFromComment = createPostFromComment(e.getComment());
+            result.add(redditPostFromComment.identifier);
 
             List<CommentNode> children = e.getChildren();
 
             children.forEach(cn -> {
                 ArrayList<String> childrenNodes = walkTree(cn);
-                postFromComment.childPosts.addAll(childrenNodes);
+                redditPostFromComment.childPosts.addAll(childrenNodes);
             });
         });
         return result;
     }
 
-    private Post createPostFromComment(Comment comment){
-        Post post = new Post();
-        post.identifier = comment.getId();
-        post.url = comment.getUrl();
-        post.author = getUser(comment.getAuthor());
-        post.content = comment.getBody();
-        post.parentPost = Post.getPostCache(comment.getParentId());
-        Post.registerPost(post, post.identifier);
-        return post;
+    private RedditPost createPostFromComment(Comment comment){
+        RedditPost redditPost = new RedditPost();
+        redditPost.identifier = comment.getId();
+        redditPost.url = comment.getUrl();
+        redditPost.author = getUser(comment.getAuthor());
+        redditPost.content = comment.getBody();
+        redditPost.parentRedditPost = RedditPost.getPostCache(comment.getParentId());
+        RedditPost.registerPost(redditPost, redditPost.identifier);
+        return redditPost;
     }
 
 
